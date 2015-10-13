@@ -20,5 +20,8 @@ if __name__ == "__main__":
     #This is a single threaded server
     http_server = tornado.httpserver.HTTPServer(app)
     http_server.listen(options.port)
+    #Most applications have a single, global IOLoop running on the main thread. Use this method to get this 
+    #instance from another thread. In most other cases, it is better to use current() to get the current 
+    #thread’s IOLoop.
     tornado.ioloop.IOLoop.instance().start()
 
